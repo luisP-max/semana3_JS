@@ -80,8 +80,8 @@ h1 {
 
 #listaNotas {
     list-style: none;
-    padding: 10px 30px 30px;
-    max-height: 60vh;
+    padding: 10px 30px 20px;
+    max-height: 55vh;
     overflow-y: auto;
 }
 
@@ -123,6 +123,28 @@ h1 {
 .eliminar:hover {
     background: #c0392b;
     transform: scale(1.05);
+}
+
+.actions {
+    padding: 15px 30px 25px;
+    text-align: center;
+}
+
+.borrar-todo {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.borrar-todo:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
 }
 
 /* Scrollbar */
