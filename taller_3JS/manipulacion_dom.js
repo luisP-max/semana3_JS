@@ -1,6 +1,7 @@
 const inputNota = document.getElementById("inputNota");
 const btnAgregar = document.getElementById("btnAgregar");
 const listaNotas = document.getElementById("listaNotas");
+const btnBorrarTodo = document.getElementById("btnBorrarTodo");
 
 let notas = [];
 
@@ -58,6 +59,18 @@ function eliminarNota(index) {
     console.log(`Nota eliminada: "${notaEliminada}"`);
 }
 
+function borrarTodasLasNotas() {
+    if (notas.length === 0) return;
+    
+    if (confirm("¿Estás seguro de que deseas borrar TODAS las notas?")) {
+        notas = [];
+        localStorage.removeItem("notas");
+        renderizarNotas();
+        console.log("Todas las notas han sido eliminadas.");
+    }
+}
+
+// Eventos
 btnAgregar.addEventListener("click", agregarNota);
 
 listaNotas.addEventListener("click", function(e) {
@@ -67,12 +80,15 @@ listaNotas.addEventListener("click", function(e) {
     }
 });
 
+btnBorrarTodo.addEventListener("click", borrarTodasLasNotas);
+
 inputNota.addEventListener("keypress", function(e) {
     if (e.key === "Enter") {
         agregarNota();
     }
 });
 
+// Inicialización
 cargarNotas();
 
 console.log("Aplicación cargada completamente. Listo para usar.");
